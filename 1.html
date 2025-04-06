@@ -121,19 +121,24 @@
   <!-- Navigation -->
   <header class="text-white bg-red-200">
     <nav class="flex justify-between items-center p-6 bg-white shadow-md">
-      <div class="text-xl font-bold flex items-center space-x-2">
-        <span class="text-green-600">ZERO</span> <span class="text-black">WASTE</span>
+      <div class="flex items-end font-bold text-xl space-x">
+        <span class="text-green-600 text-4xl cursor-pointer leading-none">Z</span>
+        <span class="text-green-600 cursor-pointer">ERO</span>
+        <span class="text-black text-4xl cursor-pointer leading-none">W</span>
+        <span class="text-black cursor-pointer">ASTE</span>
       </div>
+
+
       <div class="space-x-6 hidden md:flex">
-        <a href="#" class="nav-link text-gray-700 font-medium hover:text-green-600">Home</a>
-        <a href="#about" class="nav-link text-gray-700 font-medium hover:text-green-600">About Us</a>
-        <a href="#services" class="nav-link text-gray-700 font-medium hover:text-green-600">Services</a>
-        <a href="#" class="nav-link text-gray-700 font-medium hover:text-green-600">Process</a>
-        <a href="#" class="nav-link text-gray-700 font-medium hover:text-green-600">Event</a>
+        <a href="#" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">Home</a>
+        <a href="#about" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">About Us</a>
+        <a href="#services" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">Services</a>
+        <a href="#" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">Process</a>
+        <a href="#" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">Event</a>
       </div>
       <div class="space-x-4">
-        <button class="px-3 py-2 text-black border rounded-lg hover:bg-gray-400">Contact Us</button>
-        <button class="px-3 py-2 text-black font-bold border rounded-lg hover:bg-red-400">Log out</button>
+        <button class="px-3 py-2 text-black font-bold border rounded-lg hover:bg-green-400 transition-all duration-300 ease-in-out">Contact Us</button>
+        <button class="px-3 py-2 text-black font-bold border rounded-lg hover:bg-red-400 transition-all duration-300 ease-in-out">Log out</button>
       </div>
     </nav>
   </header>
@@ -157,10 +162,10 @@
       <div class="text-center text-white px-6">
         <h1 class="text-5xl font-bold mb-4" data-aos="fade-down">Welcome to</h1>
         <p class="text-4xl mb-10" data-aos="fade-up">Waste Management and Recycling Request Portal.</p>
-        
+
         <button onclick="scrollToSection('explore')"
           class="relative inline-flex items-center justify-center px-8 py-2.5 overflow-hidden tracking-tighter text-green-600 bg-white rounded-full group font-bold transition duration-300 ease-in-out">
-          
+
           <!-- Background animation SVGs and spans -->
           <span
             class="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-400 rounded-full group-hover:w-56 group-hover:h-56">
@@ -187,31 +192,62 @@
             Start Exploring
           </span>
         </button>
-    
+
         <script>
           function scrollToSection(sectionId) {
-              document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
           }
         </script>
       </div>
     </div>
-    
   </section>
 
   <!-- Animated Counter Section -->
-  <section class="bg-white py-20 text-center" id="explore">
-    <h2 class="text-3xl font-bold mb-8">Our Impact</h2>
-    <div class="text-5xl font-bold text-green-600" id="counter">0</div>
+  <section class="py-16 text-green-700 fade-section">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+        <div class="p-6">
+          <h3 id="clients" class="text-4xl font-bold">0+</h3>
+          <p class="mt-2 font-bold text-black">Clients Served</p>
+        </div>
+        <div class="p-6">
+          <h3 id="recycling" class="text-4xl font-bold">0%</h3>
+          <p class="mt-2 font-bold text-black">Recycling Rate</p>
+        </div>
+        <div class="p-6">
+          <h3 id="experience" class="text-4xl font-bold">0+</h3>
+          <p class="mt-2 font-bold text-black">Years Experience</p>
+        </div>
+        <div class="p-6">
+          <h3 class="text-4xl font-bold animate-[bounce_2s_ease-in-out_infinite]">24/7</h3>
+          <p class="mt-2 font-bold text-black">Support</p>
+        </div>
+      </div>
+    </div>
   </section>
+  
   <script>
-    let count = 0;
-    let counter = document.getElementById("counter");
-    let interval = setInterval(() => {
-      count++;
-      counter.innerText = count;
-      if (count >= 1000) clearInterval(interval);
-    }, 5);
+    function animateValue(id, end, suffix = "", duration = 100) {
+      const el = document.getElementById(id);
+      let start = 0;
+      let increment = end / (duration / 10);
+  
+      const counter = setInterval(() => {
+        start += increment;
+        if (start >= end) {
+          start = end;
+          clearInterval(counter);
+        }
+        el.innerText = Math.floor(start) + suffix;
+      }, 10);
+    }
+  
+    // Animate each counter
+    animateValue("clients", 500, "+", 2000);
+    animateValue("recycling", 95, "%", 2000);
+    animateValue("experience", 15, "+", 2000);
   </script>
+
 
   <!-- Hover Effect Section -->
   <section class="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 py-12 bg-gray-100">
@@ -228,25 +264,28 @@
   <section class="py-20 bg-gray-50 fade-section" id="services">
     <div class="container mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12">Our Services</h2>
-  
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- ♻️ Recycling Services Card -->
-        <div class="bg-white p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl">
+        <div
+          class="bg-white p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl">
           <div class="text-5xl mb-4 text-green-500 text-center">♻️</div>
           <h3 class="text-2xl font-semibold mb-4 text-center">Recycling Services</h3>
           <p class="text-gray-600 text-center text-sm">
             Professional recycling solutions for residential and commercial needs.
           </p>
-  
+
           <div class="mt-4 flex justify-center">
-            <button onclick="toggleForm('recycleForm')" class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">
+            <button onclick="toggleForm('recycleForm')"
+              class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">
               Start Request
             </button>
           </div>
-  
+
           <div id="recycleForm" class="hidden mt-6">
-            <input id="addressInput" type="text" placeholder="Enter your address" class="w-full mb-4 p-2 border rounded" />
-  
+            <input id="addressInput" type="text" placeholder="Enter your address"
+              class="w-full mb-4 p-2 border rounded" />
+
             <label class="block mb-2 font-medium">Select Recycling Waste Types:</label>
             <select class="w-full p-2 border rounded">
               <option>Select Garbage</option>
@@ -257,8 +296,9 @@
               <option>Glass</option>
               <option>Paper</option>
             </select>
-  
-            <button onclick="submitService(this, 'msg1')" class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition w-full mt-4">
+
+            <button onclick="submitService(this, 'msg1')"
+              class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition w-full mt-4">
               Submit Waste Info
             </button>
             <div id="msg1" class="hidden text-green-600 font-semibold text-center mt-4">
@@ -266,22 +306,24 @@
             </div>
           </div>
         </div>
-  
+
         <!-- 🚛 Waste Collection Card -->
-        <div class="bg-white p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl">
+        <div
+          class="bg-white p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl">
           <div class="text-5xl mb-4 text-green-500 text-center">🚛</div>
           <h3 class="text-2xl font-semibold mb-4 text-center">Waste Collection</h3>
           <p class="text-gray-600 text-center">Regular and reliable waste collection services.</p>
-  
+
           <div class="mt-4 flex justify-center">
-            <button onclick="toggleForm('collectionForm')" class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">
+            <button onclick="toggleForm('collectionForm')"
+              class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">
               Start Request
             </button>
           </div>
-  
+
           <div id="collectionForm" class="hidden mt-6">
             <input type="text" placeholder="Enter your address" class="w-full mb-4 p-2 border rounded" />
-  
+
             <label class="block mb-2 font-medium">Select Waste Types:</label>
             <select class="w-full p-2 border rounded">
               <option>Select Garbage</option>
@@ -290,8 +332,9 @@
               <option>Garden Waste</option>
               <option>Bulk Items</option>
             </select>
-  
-            <button onclick="submitService(this, 'msg2')" class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition w-full mt-4">
+
+            <button onclick="submitService(this, 'msg2')"
+              class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition w-full mt-4">
               Submit Waste Info
             </button>
             <div id="msg2" class="hidden text-green-600 font-semibold text-center mt-4">
@@ -299,22 +342,24 @@
             </div>
           </div>
         </div>
-  
+
         <!-- 🌱 Green Initiatives Card -->
-        <div class="bg-white p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl">
+        <div
+          class="bg-white p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl">
           <div class="text-5xl mb-4 text-green-500 text-center">🌱</div>
           <h3 class="text-2xl font-semibold mb-4 text-center">Green Initiatives</h3>
           <p class="text-gray-600 text-center">Sustainable waste management consulting and solutions.</p>
-  
+
           <div class="mt-4 flex justify-center">
-            <button onclick="toggleForm('greenForm')" class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">
+            <button onclick="toggleForm('greenForm')"
+              class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">
               Start Request
             </button>
           </div>
-  
+
           <div id="greenForm" class="hidden mt-6">
             <input type="text" placeholder="Enter your address" class="w-full mb-4 p-2 border rounded" />
-  
+
             <label class="block mb-2 font-medium">Choose Green Services:</label>
             <select class="w-full p-2 border rounded">
               <option>Select Initiative</option>
@@ -323,8 +368,9 @@
               <option>Clean-up Drives</option>
               <option>Eco Workshops</option>
             </select>
-  
-            <button onclick="submitService(this, 'msg3')" class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition w-full mt-4">
+
+            <button onclick="submitService(this, 'msg3')"
+              class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition w-full mt-4">
               Submit Green Info
             </button>
             <div id="msg3" class="hidden text-green-600 font-semibold text-center mt-4">
@@ -335,21 +381,21 @@
       </div>
     </div>
   </section>
-  
+
   <!-- 🔁 Shared JS Functionality -->
   <script>
     function toggleForm(id) {
       const form = document.getElementById(id);
       form.classList.toggle('hidden');
     }
-  
+
     function submitService(btn, msgId) {
       btn.disabled = true;
       btn.innerText = "Submitted ✅";
       document.getElementById(msgId).classList.remove('hidden');
     }
   </script>
-  
+
   <!-- About Section -->
   <section class="py-20 bg-white fade-section" id="about">
     <div class="container mx-auto px-6">
@@ -544,14 +590,14 @@
   </script>
   <script>
     let autocomplete;
-  
+
     function initAutocomplete() {
       const input = document.getElementById('addressInput');
       autocomplete = new google.maps.places.Autocomplete(input, {
         types: ['geocode'],
         componentRestrictions: { country: "in" } // Restrict to India or change if needed
       });
-  
+
       autocomplete.addListener('place_changed', function () {
         const place = autocomplete.getPlace();
         console.log("Selected place:", place.formatted_address); // For your reference
@@ -562,7 +608,9 @@
   src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
   async defer>
 </script> -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdyYPQz3-Q3fV6QsJYZ5cp8z05hcnSjRY&libraries=places&callback=initAutocomplete" async defer></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdyYPQz3-Q3fV6QsJYZ5cp8z05hcnSjRY&libraries=places&callback=initAutocomplete"
+    async defer></script>
 </body>
 
 </html>
