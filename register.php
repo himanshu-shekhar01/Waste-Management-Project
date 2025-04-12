@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,9 +20,20 @@
     }
 
     @keyframes fadeInOut {
-      0% { opacity: 0; transform: translateY(10px); }
-      50% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(-10px); }
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
     }
 
     .animate-continuous {
@@ -33,23 +45,24 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Display Message -->
-  <?php 
-    session_start();
-    if (isset($_SESSION['success'])) {
-      echo '<div class="text-green-700 font-bold mb-2">' . $_SESSION['success'] . '</div>';
-      unset($_SESSION['success']);
-    }
-    if (isset($_SESSION['error'])) {
-      echo '<script>alert("' . $_SESSION['error'] . '");</script>';
-      unset($_SESSION['error']);
-    }
+  <?php
+  session_start();
+  if (isset($_SESSION['success'])) {
+    echo '<div class="text-green-700 font-bold mb-2">' . $_SESSION['success'] . '</div>';
+    unset($_SESSION['success']);
+  }
+  if (isset($_SESSION['error'])) {
+    echo '<script>alert("' . $_SESSION['error'] . '");</script>';
+    unset($_SESSION['error']);
+  }
   ?>
 
   <!-- Centered Form Container -->
-  <div class="flex w-full max-w-2xl bg-white bg-opacity-30 backdrop-blur-md rounded-lg shadow-2xl p-4">
+  <div class="flex w-full max-w-2xl bg-white bg-opacity-30 backdrop-blur-md rounded-lg shadow-2xl p-4 mt-6" id="signIn">
 
     <!-- Sign In Form -->
     <div class="w-full lg:w-1/2 p-4">
@@ -89,8 +102,8 @@
         <i class="fab fa-facebook text-lg"></i>
       </div>
       <p class="text-center text-sm text-black">
-        Don't have an account?
-        <button id="signUpButton" class="text-green-900 font-bold hover:underline">Sign Up</button>
+        Already have an account?
+        <button id="signInButton" class="text-green-900 font-bold hover:underline">Sign In</button>
       </p>
     </div>
 
@@ -143,8 +156,8 @@
         <i class="fab fa-facebook text-lg"></i>
       </div>
       <p class="text-center text-sm text-black">
-        Already have an account?
-        <button id="signInButton" class="text-green-900 font-bold hover:underline">Sign In</button>
+        Don't have an account?
+        <button id="signUpButton" class="text-green-900 font-bold hover:underline">Sign Up</button>
       </p>
     </div>
 
@@ -159,6 +172,8 @@
     </div>
 
   </div>
+
+  <!-- Your other HTML content -->
 
   <script>
     const signUpButton = document.getElementById('signUpButton');
@@ -190,4 +205,5 @@
     }
   </script>
 </body>
+
 </html>
