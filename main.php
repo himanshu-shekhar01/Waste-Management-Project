@@ -219,7 +219,7 @@
           <p class="mt-2 font-bold text-black">Years Experience</p>
         </div>
         <div class="p-6">
-          <h3 class="text-4xl font-bold animate-[bounce_2s_ease-in-out_infinite]">24/7</h3>
+          <h3 class="text-4xl font-bold ">24/7</h3>
           <p class="mt-2 font-bold text-black">Support</p>
         </div>
       </div>
@@ -267,117 +267,57 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- ♻️ Recycling Services Card -->
-        <div
-          class="bg-white p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl">
+        <div class="bg-white p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl">
           <div class="text-5xl mb-4 text-green-500 text-center">♻️</div>
           <h3 class="text-2xl font-semibold mb-4 text-center">Recycling Services</h3>
           <p class="text-gray-600 text-center text-sm">
             Professional recycling solutions for residential and commercial needs.
           </p>
-
+        
           <div class="mt-4 flex justify-center">
-            <button onclick="toggleForm('recycleForm')"
-              class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">
-              Start Request
-            </button>
-          </div>
-
-          <div id="recycleForm" class="hidden mt-6">
-            <input id="addressInput" type="text" placeholder="Enter your address"
-              class="w-full mb-4 p-2 border rounded" />
-
-            <label class="block mb-2 font-medium">Select Recycling Waste Types:</label>
-            <select class="w-full p-2 border rounded">
-              <option>Select Garbage</option>
-              <option>Wet Garbage</option>
-              <option>Dry Waste</option>
-              <option>Plastic</option>
-              <option>Metal</option>
-              <option>Glass</option>
-              <option>Paper</option>
-            </select>
-
-            <button onclick="submitService(this, 'msg1')"
-              class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition w-full mt-4">
-              Submit Waste Info
-            </button>
-            <div id="msg1" class="hidden text-green-600 font-semibold text-center mt-4">
-              ✅ Request Submitted Successfully!
-            </div>
+            <a href="recycling-form.php">
+              <button
+                class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">
+                Start Request
+              </button>
+            </a>
           </div>
         </div>
+        
 
         <!-- 🚛 Waste Collection Card -->
-        <div
-          class="bg-white p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl">
+        <div class="bg-white p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl">
           <div class="text-5xl mb-4 text-green-500 text-center">🚛</div>
           <h3 class="text-2xl font-semibold mb-4 text-center">Waste Collection</h3>
           <p class="text-gray-600 text-center">Regular and reliable waste collection services.</p>
-
+        
           <div class="mt-4 flex justify-center">
-            <button onclick="toggleForm('collectionForm')"
-              class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">
-              Start Request
-            </button>
-          </div>
-
-          <div id="collectionForm" class="hidden mt-6">
-            <input type="text" placeholder="Enter your address" class="w-full mb-4 p-2 border rounded" />
-
-            <label class="block mb-2 font-medium">Select Waste Types:</label>
-            <select class="w-full p-2 border rounded">
-              <option>Select Garbage</option>
-              <option>Household Waste</option>
-              <option>Commercial Waste</option>
-              <option>Garden Waste</option>
-              <option>Bulk Items</option>
-            </select>
-
-            <button onclick="submitService(this, 'msg2')"
-              class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition w-full mt-4">
-              Submit Waste Info
-            </button>
-            <div id="msg2" class="hidden text-green-600 font-semibold text-center mt-4">
-              ✅ Request Submitted Successfully!
-            </div>
+            <a href="waste-collection-form.php">
+              <button
+                class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">
+                Start Request
+              </button>
+            </a>
           </div>
         </div>
+        
 
         <!-- 🌱 Green Initiatives Card -->
-        <div
-          class="bg-white p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl">
+        <div class="bg-white p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl">
           <div class="text-5xl mb-4 text-green-500 text-center">🌱</div>
           <h3 class="text-2xl font-semibold mb-4 text-center">Green Initiatives</h3>
           <p class="text-gray-600 text-center">Sustainable waste management consulting and solutions.</p>
-
+        
           <div class="mt-4 flex justify-center">
-            <button onclick="toggleForm('greenForm')"
-              class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">
-              Start Request
-            </button>
-          </div>
-
-          <div id="greenForm" class="hidden mt-6">
-            <input type="text" placeholder="Enter your address" class="w-full mb-4 p-2 border rounded" />
-
-            <label class="block mb-2 font-medium">Choose Green Services:</label>
-            <select class="w-full p-2 border rounded">
-              <option>Select Initiative</option>
-              <option>Composting Setup</option>
-              <option>Sustainability Consulting</option>
-              <option>Clean-up Drives</option>
-              <option>Eco Workshops</option>
-            </select>
-
-            <button onclick="submitService(this, 'msg3')"
-              class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition w-full mt-4">
-              Submit Green Info
-            </button>
-            <div id="msg3" class="hidden text-green-600 font-semibold text-center mt-4">
-              ✅ Request Submitted Successfully!
-            </div>
+            <a href="green-initiatives-form.php">
+              <button
+                class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition">
+                Start Request
+              </button>
+            </a>
           </div>
         </div>
+        
       </div>
     </div>
   </section>
