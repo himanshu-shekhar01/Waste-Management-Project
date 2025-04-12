@@ -116,7 +116,9 @@
 </head>
 
 <body>
-  <script>AOS.init();</script>
+  <script>
+    AOS.init();
+  </script>
 
   <!-- Navigation -->
   <header class="text-white bg-red-200">
@@ -130,15 +132,15 @@
 
 
       <div class="space-x-6 hidden md:flex">
-        <a href="#" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">Home</a>
+        <a href="main.php" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">Home</a>
         <a href="#about" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">About Us</a>
         <a href="#services" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">Services</a>
         <a href="#" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">Process</a>
         <a href="#" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">Event</a>
       </div>
       <div class="space-x-4">
-        <button class="px-3 py-2 text-black font-bold border rounded-lg hover:bg-green-400 transition-all duration-300 ease-in-out">Contact Us</button>
-        <button class="px-3 py-2 text-black font-bold border rounded-lg hover:bg-red-400 transition-all duration-300 ease-in-out">Log out</button>
+        <button onclick="window.location.href='contact.html';" class="px-3 py-2 text-black font-bold border rounded-lg hover:bg-green-400 transition-all duration-300 ease-in-out">Contact Us</button>
+        <button onclick="window.location.href='logout.php';" class="px-3 py-2 text-black font-bold border rounded-lg hover:bg-red-400 transition-all duration-300 ease-in-out">Log out</button>
       </div>
     </nav>
   </header>
@@ -195,7 +197,9 @@
 
         <script>
           function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            document.getElementById(sectionId).scrollIntoView({
+              behavior: 'smooth'
+            });
           }
         </script>
       </div>
@@ -225,13 +229,13 @@
       </div>
     </div>
   </section>
-  
+
   <script>
     function animateValue(id, end, suffix = "", duration = 100) {
       const el = document.getElementById(id);
       let start = 0;
       let increment = end / (duration / 10);
-  
+
       const counter = setInterval(() => {
         start += increment;
         if (start >= end) {
@@ -241,7 +245,7 @@
         el.innerText = Math.floor(start) + suffix;
       }, 10);
     }
-  
+
     // Animate each counter
     animateValue("clients", 500, "+", 2000);
     animateValue("recycling", 95, "%", 2000);
@@ -273,7 +277,7 @@
           <p class="text-gray-600 text-center text-sm">
             Professional recycling solutions for residential and commercial needs.
           </p>
-        
+
           <div class="mt-4 flex justify-center">
             <a href="recycling-form.php">
               <button
@@ -283,14 +287,14 @@
             </a>
           </div>
         </div>
-        
+
 
         <!-- 🚛 Waste Collection Card -->
         <div class="bg-white p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl">
           <div class="text-5xl mb-4 text-green-500 text-center">🚛</div>
           <h3 class="text-2xl font-semibold mb-4 text-center">Waste Collection</h3>
           <p class="text-gray-600 text-center">Regular and reliable waste collection services.</p>
-        
+
           <div class="mt-4 flex justify-center">
             <a href="waste-collection-form.php">
               <button
@@ -300,14 +304,14 @@
             </a>
           </div>
         </div>
-        
+
 
         <!-- 🌱 Green Initiatives Card -->
         <div class="bg-white p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-green-50 hover:shadow-2xl">
           <div class="text-5xl mb-4 text-green-500 text-center">🌱</div>
           <h3 class="text-2xl font-semibold mb-4 text-center">Green Initiatives</h3>
           <p class="text-gray-600 text-center">Sustainable waste management consulting and solutions.</p>
-        
+
           <div class="mt-4 flex justify-center">
             <a href="green-initiatives-form.php">
               <button
@@ -317,7 +321,7 @@
             </a>
           </div>
         </div>
-        
+
       </div>
     </div>
   </section>
@@ -337,28 +341,75 @@
   </script>
 
   <!-- About Section -->
-  <section class="py-20 bg-white fade-section" id="about">
+  <section class="py-20 bg-gradient-to-br from-green-50 via-white to-green-100 fade-section" id="about">
     <div class="container mx-auto px-6">
-      <div class="flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 mb-8 md:mb-0">
-          <div class="grid grid-cols-2 gap-4">
-            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b" class="rounded-lg shadow-xl">
-            <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e" class="rounded-lg shadow-xl">
-            <img src="https://images.unsplash.com/photo-1605705319956-4e8a5d3cf2b0"
-              class="rounded-lg shadow-xl col-span-2">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+
+        <!-- Image Section -->
+        <div class="md:w-1/2 w-full flex justify-center">
+          <div class="relative w-[80%] h-[150px] md:h-[350px] overflow-hidden rounded-xl ">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT5E5mYLf3XmvexGS_zMB1DD-_SUKXQRvTOA&s"
+              class=" w-full h-full   transition-transform duration-500 ease-in-out  rounded-xl">
+            <div class="absolute inset-0 bg-black bg-opacity-10 opacity-0 "></div>
           </div>
         </div>
-        <div class="md:w-1/2 md:pl-12">
-          <h2 class="text-4xl font-bold mb-6">About Us</h2>
-          <p class="text-gray-600 mb-6">We are committed to providing sustainable waste management solutions that
-            protect our environment for future generations. Our team of experts works tirelessly to ensure proper waste
-            disposal and maximize recycling efforts.</p>
-          <button class="bg-green-600 text-white px-8 py-3 rounded-full font-bold hover:bg-green-700 transition">Learn
-            More</button>
+
+        <!-- Text Content -->
+        <div class="md:w-1/2 w-full text-center md:text-left">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-green-700 animate-fade-in">About Us</h2>
+          <p class="text-base md:text-lg text-gray-700 mb-6 leading-relaxed">
+            We are committed to providing sustainable waste management solutions that protect our environment for future generations. Our team of experts works tirelessly to ensure proper waste disposal and maximize recycling efforts.
+          </p>
+
+
+
+          <!-- Icons Row -->
+          <div class="grid grid-cols-3 gap-6 mb-6">
+            <div class="text-center w-12 h-12">
+              <img src="data:image/png;base64,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" class="mx-auto mb-2">
+              <p class="text-sm font-semibold">Recycling</p>
+            </div>
+            <div class="text-center">
+              <img src="https://img.icons8.com/fluency/48/leaf.png" class="mx-auto mb-2">
+              <p class="text-sm font-semibold">Eco-Friendly</p>
+            </div>
+            <div class="text-center">
+              <img src="https://img.icons8.com/fluency/48/organic-food.png" class="mx-auto mb-2">
+              <p class="text-sm font-semibold">Sustainability</p>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
+
+    <!-- Counters -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mt-16">
+      <div>
+        <p class="text-4xl font-bold text-green-700">12K+</p>
+        <p class="text-gray-600">Tons Recycled</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-green-700">500+</p>
+        <p class="text-gray-600">Volunteers</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-green-700">25+</p>
+        <p class="text-gray-600">Communities Helped</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-green-700">100%</p>
+        <p class="text-gray-600">Eco Commitment</p>
+      </div>
+    </div>
+
+    <!-- Testimonial -->
+    <div class="mt-16 bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto text-center">
+      <p class="text-xl italic text-gray-700 mb-4">"Their dedication to sustainability is truly inspiring. We've reduced 70% of our office waste thanks to their service."</p>
+    </div>
+    </div>
   </section>
+
   <!-- feedback -->
   <section class="px-6 py-12 bg-white">
     <h2 class="text-3xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
@@ -443,7 +494,7 @@
             <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
             <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
             <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
-            <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
           </ul>
         </div>
         <div>
@@ -499,17 +550,20 @@
     fadeSections.forEach(section => fadeObserver.observe(section));
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+      anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
         }
       });
     });
 
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
+
     function activateLinkOnScroll() {
       let scrollY = window.scrollY;
       sections.forEach(current => {
@@ -535,10 +589,12 @@
       const input = document.getElementById('addressInput');
       autocomplete = new google.maps.places.Autocomplete(input, {
         types: ['geocode'],
-        componentRestrictions: { country: "in" } // Restrict to India or change if needed
+        componentRestrictions: {
+          country: "in"
+        } // Restrict to India or change if needed
       });
 
-      autocomplete.addListener('place_changed', function () {
+      autocomplete.addListener('place_changed', function() {
         const place = autocomplete.getPlace();
         console.log("Selected place:", place.formatted_address); // For your reference
       });
