@@ -102,9 +102,10 @@
         <i class="fab fa-facebook text-lg"></i>
       </div>
       <p class="text-center text-sm text-black">
-        Already have an account?
-        <button id="signInButton" class="text-green-900 font-bold hover:underline">Sign In</button>
+        Don't have an account?
+        <button id="signUpButton" class="text-green-900 font-bold hover:underline">Sign Up</button>
       </p>
+
     </div>
 
     <div class="w-full lg:w-1/2 flex items-center justify-center text-center p-4">
@@ -156,9 +157,10 @@
         <i class="fab fa-facebook text-lg"></i>
       </div>
       <p class="text-center text-sm text-black">
-        Don't have an account?
-        <button id="signUpButton" class="text-green-900 font-bold hover:underline">Sign Up</button>
-      </p>
+  Already have an account?
+  <button id="signInButton" class="text-green-900 font-bold hover:underline">Sign In</button>
+</p>
+
     </div>
 
     <div class="w-full lg:w-1/2 flex items-center justify-center text-center p-4">
@@ -176,8 +178,8 @@
   <!-- Your other HTML content -->
 
   <script>
-    const signUpButton = document.getElementById('signUpButton');
-    const signInButton = document.getElementById('signInButton');
+    const signUpButton = document.getElementById('signUpButton'); //for new Registration
+    const signInButton = document.getElementById('signInButton'); //for login current registration
     const signInForm = document.getElementById('signIn');
     const signUpForm = document.getElementById('signUp');
 
