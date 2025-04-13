@@ -1,11 +1,15 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 include 'connect.php';
 
 if (isset($_POST['signUp'])) {
-    $firstName = $_POST['firstName'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Secure password
+    $firstName = trim($_POST['firstName']);
+    $email = trim($_POST['email']);
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     // Check if user already exists
     $checkUser = $conn->prepare("SELECT * FROM users WHERE email = ?");
@@ -15,7 +19,7 @@ if (isset($_POST['signUp'])) {
 
     if ($result->num_rows > 0) {
         $_SESSION['error'] = "User already exists!";
-        header("Location: ../signup.php"); // redirect to sign-up page
+        header("Location: ../register.php"); // ✅ redirect to login
         exit();
     }
 
@@ -25,11 +29,11 @@ if (isset($_POST['signUp'])) {
 
     if ($stmt->execute()) {
         $_SESSION['success'] = "Registration successful! Please log in.";
-        header("Location: ../login.php"); // go to login page after registration
+        header("Location: ../main.php"); // ✅ correct flow
         exit();
     } else {
         $_SESSION['error'] = "Something went wrong: " . $stmt->error;
-        header("Location: ../signup.php");
+        header("Location: ../register.php");
         exit();
     }
 }
