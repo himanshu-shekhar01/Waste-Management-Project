@@ -13,8 +13,6 @@ if (isset($_POST['signIn'])) {
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
-    // Debugging step: print POST variables to check if form data is being passed
-    var_dump($_POST); // You can remove this after debugging
 
     // Prepare SQL query to check if the user exists
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");

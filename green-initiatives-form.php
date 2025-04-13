@@ -2,73 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Green Initiatives Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoSpark – Green Initiatives Form</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background-image: url('images/green-initiatives-blog.webp');
-      background-size: cover;
-      background-position: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #f1f8e9, #ede7f6);
+      background-size: 300% 300%;
+      animation: gradientBG 20s ease infinite;
     }
-    .overlay {
-      background-color: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(2px);
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .floating-label {
+      position: relative;
+    }
+
+    .floating-label input,
+    .floating-label select {
+      padding-top: 1.5rem;
+    }
+
+    .floating-label label {
+      position: absolute;
+      top: 0.75rem;
+      left: 1rem;
+      color: #7e57c2;
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .floating-label input:focus + label,
+    .floating-label select:focus + label,
+    .floating-label input:not(:placeholder-shown) + label,
+    .floating-label select:not(:placeholder-shown) + label {
+      top: 0.1rem;
+      left: 1rem;
+      font-size: 0.75rem;
+      color: #5e35b1;
+    }
+
+    .success-popup {
+      animation: pop 0.4s ease-out forwards;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Animated leaf */
+    .leaf {
+      position: absolute;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      animation: floatLeaf 12s linear infinite;
+      opacity: 0.6;
+    }
+
+    .leaf:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .leaf:nth-child(2) { left: 30%; animation-delay: 3s; }
+    .leaf:nth-child(3) { left: 50%; animation-delay: 6s; }
+    .leaf:nth-child(4) { left: 70%; animation-delay: 1.5s; }
+    .leaf:nth-child(5) { left: 90%; animation-delay: 4.5s; }
+
+    @keyframes floatLeaf {
+      0% { transform: translateY(0) rotate(0); }
+      100% { transform: translateY(100vh) rotate(360deg); }
     }
   </style>
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-green-50 min-h-screen flex items-center justify-center p-4">
+<body class="flex flex-col items-center min-h-screen overflow-y-auto scroll-smooth p-6 relative">
 
-  <div class="overlay max-w-xl w-full mx-auto p-8 rounded-lg shadow-2xl">
-    <div class="text-5xl mb-4 text-green-500 text-center">🌱</div>
-    <h2 class="text-2xl font-bold mb-4 text-center text-green-600">Green Initiatives</h2>
-    <p class="text-center text-gray-600 mb-6">
-      Sustainable waste management consulting and solutions.
+  <!-- Floating leaves -->
+  <img src="https://cdn-icons-png.flaticon.com/128/2909/2909764.png" class="leaf" />
+  <img src="https://cdn-icons-png.flaticon.com/128/2909/2909764.png" class="leaf" />
+  <img src="https://cdn-icons-png.flaticon.com/128/2909/2909764.png" class="leaf" />
+  <img src="https://cdn-icons-png.flaticon.com/128/2909/2909764.png" class="leaf" />
+  <img src="https://cdn-icons-png.flaticon.com/128/2909/2909764.png" class="leaf" />
+
+  <!-- Header -->
+  <div class="w-full max-w-4xl bg-white/80 backdrop-blur-md shadow-lg p-6 rounded-xl mb-8 border border-purple-200">
+    <div class="flex items-center justify-between">
+      <h1 class="text-3xl font-extrabold text-green-600 flex items-center gap-2">
+        <i class="fas fa-seedling text-green-500"></i>
+        EcoSpark
+      </h1>
+      <span class="text-green-500 font-medium hidden md:block">💫 Let’s make Earth bloom again 🌼</span>
+    </div>
+    <p class="mt-3 text-gray-600 text-center md:text-left italic text-lg">
+      Your effort counts. Every little act makes a huge impact!
     </p>
+  </div>
 
-    <div class="relative mb-4">
-        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-green-500">
-          <i class="fas fa-map-marker-alt"></i>
-        </span>
-        <input type="text" placeholder="Enter your address"
-          class="w-full pl-10 p-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300" />
-      </div>
+  <!-- Form -->
+  <form action="submit3.php" method="POST" class="bg-white/90 backdrop-blur-lg shadow-2xl p-10 rounded-2xl max-w-xl w-full space-y-6 border border-purple-100">
+    <div class="text-center">
+      <div class="text-6xl mb-2 text-purple-400 animate-pulse">🌸</div>
+      <h2 class="text-3xl font-bold text-green-700">Be a Part of the Greener Tomorrow</h2>
+      <p class="text-gray-600">Sign up and choose your green action 💚</p>
+    </div>
 
-    <label class="block mb-2 font-medium">Choose Green Services:</label>
-    <select id="greenService" class="w-full p-3 border rounded mb-4">
-      <option>Select Initiative</option>
-      <option>Composting Setup</option>
-      <option>Sustainability Consulting</option>
-      <option>Clean-up Drives</option>
-      <option>Eco Workshops</option>
-    </select>
+    <!-- Name -->
+    <div class="floating-label">
+      <input id="userName" name="userName" type="text" placeholder=" " required
+        class="w-full px-4 py-3 border border-purple-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300 bg-purple-50" />
+      <label for="userName"><i class="fas fa-user mr-2"></i>Your Name</label>
+    </div>
 
-    <button onclick="submitGreenForm()"
-      class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition w-full">
-      Submit Green Info
+    <!-- Address -->
+    <div class="floating-label">
+      <input id="greenAddress" name="greenAddress" type="text" placeholder=" " required
+        class="w-full px-4 py-3 border border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 bg-purple-50" />
+      <label for="greenAddress"><i class="fas fa-map-marker-alt mr-2"></i>Your address</label>
+    </div>
+
+    <!-- Service -->
+    <div class="floating-label">
+      <select id="greenService" name="greenService" required
+        class="w-full px-4 py-3 border border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 bg-purple-50">
+        <option value="" disabled selected hidden></option>
+        <option>🌱 Composting Setup</option>
+        <option>🌿 Sustainability Consulting</option>
+        <option>🧹 Clean-up Drives</option>
+        <option>📚 Eco Workshops</option>
+      </select>
+      <label for="greenService"><i class="fas fa-leaf mr-2"></i>Select a service</label>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" onclick="submitGreenForm()"
+      class="bg-green-600 text-white w-full py-3 rounded-lg font-semibold hover:bg-purple-700 transition duration-300 shadow-md">
+      ✨ Submit My Green Pledge
     </button>
 
-    <div id="greenMsg" class="hidden text-green-600 font-semibold text-center mt-4">
-      ✅ Request Submitted Successfully!
+    <!-- Success Message -->
+    <div id="greenMsg"
+      class="hidden success-popup text-purple-700 font-semibold text-center bg-purple-100 p-4 rounded-lg shadow-md">
+      🎉 Thank you! You've taken the first step toward a cleaner planet!
     </div>
-  </div>
+  </form>
 
   <script>
     function submitGreenForm() {
+      const name = document.getElementById('userName').value.trim();
       const address = document.getElementById('greenAddress').value.trim();
       const service = document.getElementById('greenService').value;
 
-      if (!address || service === 'Select Initiative') {
-        alert("Please enter your address and select a green service.");
+      if (!name || !address || !service || service === "") {
+        alert("🚫 Please fill in all fields before submitting.");
         return;
       }
 
       document.getElementById('greenMsg').classList.remove('hidden');
 
-      // Optionally clear form fields after submission
-      document.getElementById('greenAddress').value = '';
-      document.getElementById('greenService').value = 'Select Initiative';
+      setTimeout(() => {
+        document.getElementById('greenMsg').classList.add('hidden');
+        document.getElementById('userName').value = '';
+        document.getElementById('greenAddress').value = '';
+        document.getElementById('greenService').value = '';
+      }, 5000);
     }
   </script>
 

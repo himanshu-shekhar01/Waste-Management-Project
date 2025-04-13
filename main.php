@@ -7,6 +7,7 @@
   <title>EcoWaste Solutions</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <style>
     .fade-section {
@@ -132,14 +133,12 @@
 
 
       <div class="space-x-6 hidden md:flex">
-        <a href="main.php" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">Home</a>
+        <a href="main.php" id="home" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">Home</a>
         <a href="#about" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">About Us</a>
         <a href="#services" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">Services</a>
-        <a href="#" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">Process</a>
-        <a href="#" class="nav-link text-xl text-gray-700 font-medium hover:text-green-600">Event</a>
       </div>
       <div class="space-x-4">
-        <button onclick="window.location.href='contact.html';" class="px-3 py-2 text-black font-bold border rounded-lg hover:bg-green-400 transition-all duration-300 ease-in-out">Contact Us</button>
+        <button onclick="window.location.href='contact.html';" class="px-3 py-2 text-black font-bold border rounded-lg hover:bg-green-400 transition-all duration-300 ease-in-out">Feedback</button>
         <button onclick="window.location.href='logout.php';" class="px-3 py-2 text-black font-bold border rounded-lg hover:bg-red-400 transition-all duration-300 ease-in-out">Log out</button>
       </div>
     </nav>
@@ -254,12 +253,46 @@
 
 
   <!-- Hover Effect Section -->
-  <section class="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 py-12 bg-gray-100">
-    <img src="img10.jpg" class="transform hover:scale-105 hover:rotate-1 transition duration-500 rounded-xl">
-    <img src="img11.jpg" class="transform hover:scale-105 hover:rotate-1 transition duration-500 rounded-xl">
-    <img src="img9.jpg" class="transform hover:scale-105 hover:rotate-1 transition duration-500 rounded-xl">
-  </section>
+  <section class="py-20 bg-gradient-to-r from-[#0f2027] via-[#203a43] to-[#2c5364] text-white relative overflow-hidden">
 
+    <!-- Glowing Particles (Just for Vibe) -->
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
+
+    <div class="container mx-auto px-6 relative z-10">
+      <h2 class="text-5xl font-bold text-center mb-16 tracking-wide glow-text">Why Choose Us?</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+        <!-- CARD 1 -->
+        <div class="bg-white/10 backdrop-blur-md rounded-xl p-8 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-500 border border-white/20 hover:border-cyan-400">
+          <div class="mb-6 w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 shadow-xl animate-bounce">
+            <span class="text-3xl">🌱</span>
+          </div>
+          <h3 class="text-2xl font-semibold mb-3 text-cyan-200">Sustainable Future</h3>
+          <p class="text-gray-200">We're on a mission to build a greener tomorrow. Every action we take reduces waste and nurtures our planet.</p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="bg-white/10 backdrop-blur-md rounded-xl p-8 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-500 border border-white/20 hover:border-pink-400">
+          <div class="mb-6 w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-pink-400 to-fuchsia-600 shadow-xl animate-spin-slow animate-bounce">
+            <span class="text-3xl">🤖</span>
+          </div>
+          <h3 class="text-2xl font-semibold mb-3 text-pink-200">modification</h3>
+          <p class="text-gray-200">According to need of customer we are flexible tobring new changes as per your feedback.</p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="bg-white/10 backdrop-blur-md rounded-xl p-8 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-500 border border-white/20 hover:border-green-400">
+          <div class="mb-6 w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-lime-600 shadow-xl animate-bounce">
+            <span class="text-3xl">⚡</span>
+          </div>
+          <h3 class="text-2xl font-semibold mb-3 text-green-200">Speed & Efficiency</h3>
+          <p class="text-gray-200">Fast, reliable, and eco-friendly services at your doorstep. Waste collection, recycling, and processing—done in no time.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 
   <!-- Add your Services, About, Footer, and Script sections below (as in your earlier code) -->
@@ -460,25 +493,6 @@
     </div>
   </section>
 
-  <!-- Feedback Modal -->
-  <div id="feedbackModal" class="hidden fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center">
-    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md space-y-4 animate-fadeIn">
-      <h3 class="text-xl font-semibold text-gray-800">We'd love your feedback!</h3>
-      <textarea placeholder="Write your feedback here..."
-        class="w-full p-2 border border-gray-300 rounded resize-none h-32"></textarea>
-      <div class="flex justify-end space-x-2">
-        <button onclick="toggleFeedback()" class="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400">Cancel</button>
-        <button onclick="submitFeedback()"
-          class="px-4 py-2 rounded bg-green-600 text-white hover:bg-green-700">Submit</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Feedback Button -->
-  <button onclick="toggleFeedback()" title="Send us your thoughts!"
-    class="fixed bottom-6 right-6 bg-green-600 text-white px-5 py-3 rounded-full shadow-lg hover:bg-green-700 animate-bounce transition">
-    💬 Feedback
-  </button>
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-white py-12">
@@ -503,17 +517,25 @@
             <li>Phagwara</li>
             <li>Green City, 144411</li>
             <li>Phone: (123) 456-7890</li>
-            <li>Email: msingh7763@gmail.com</li>
+            <li>Email: Ecowaste@gmail.com</li>
           </ul>
         </div>
         <div>
           <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
           <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white transition">Facebook</a>
-            <a href="#" class="text-gray-400 hover:text-white transition">Twitter</a>
-            <a href="#" class="text-gray-400 hover:text-white transition">LinkedIn</a>
+            <a href="#" class="text-gray-400 hover:text-white transition text-xl">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition text-xl">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition text-xl">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
           </div>
         </div>
+
+
       </div>
       <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
         <p>&copy; 2025 EcoWaste Solutions. All rights reserved.</p>
@@ -523,14 +545,6 @@
 
   <!-- JavaScript -->
   <script>
-    function toggleFeedback() {
-      document.getElementById("feedbackModal").classList.toggle("hidden");
-    }
-
-    function submitFeedback() {
-      toggleFeedback();
-      alert("Thank you for your feedback!");
-    }
     const fadeSections = document.querySelectorAll('.fade-section');
     const fadeObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {

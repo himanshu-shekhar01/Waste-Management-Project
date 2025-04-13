@@ -17,7 +17,7 @@
     <h1 class="text-2xl font-bold text-green-700">Message Sent Successfully!</h1>
     <p class="text-gray-600 mt-2">Thank you for contacting us. We will get back to you soon.</p>
 
-    <a href="contact.html" class="mt-6 inline-block px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">Back to Contact</a>
+    <a href="main.php" class="mt-6 inline-block px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">Back to Dashboard</a>
   </div>
 
 </body>
