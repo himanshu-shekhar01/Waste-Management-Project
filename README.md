@@ -106,11 +106,11 @@ document.addEventListener('click', (e) => {
 
 The application uses **MySQL** via **phpMyAdmin** to store recycling requests.
 
-- 📂 Database Name: `recycling_db`
-- 📄 Table: `recycling_requests`
-- 🔗 Connected using PHP (MySQLi or PDO)
+- 📂 Databases Name: `recycling_db`, `waste_collection`, `ecospark_db`
+- 📄 Table: `recycling_requests`, `requests`, `green_pledges`
+- 🔗 Connected using PHP (MySQLi)
 
-Each time a user submits a recycling request, their data (like address and timestamp) is stored in the `recycling_requests` table for tracking and processing.
+Each time a user submits a recycling request, their data (like address and other) are stored in the `recycling_requests`, `requests`, `green_pledges` table for tracking and processing.
 
 
 ---
