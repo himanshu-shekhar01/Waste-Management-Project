@@ -110,8 +110,10 @@
           <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-lime-600">
             <i class="fas fa-map-marker-alt"></i>
           </span>
-          <input type="text" name="greenAddress" placeholder="Enter your address"
+          <input id="addressInput" type="text" name="greenAddress" placeholder="Enter your address"
             class="w-full pl-10 p-3 border border-indigo-300 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-400" required />
+
+      <div id="suggestions" class="absolute top-full left-0 w-full bg-white border rounded shadow-md mt-1 hidden z-50"></div>
         </div>
 
         <!-- ♻️ Waste Type -->
@@ -143,5 +145,48 @@
       document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
+
+
+<script>
+    const addressInput = document.getElementById('addressInput');
+    const suggestionsBox = document.getElementById('suggestions');
+
+    addressInput.addEventListener('input', async () => {
+      const query = addressInput.value.trim();
+      if (query.length < 3) {
+        suggestionsBox.innerHTML = '';
+        suggestionsBox.classList.add('hidden');
+        return;
+      }
+
+      const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      suggestionsBox.innerHTML = '';
+      if (data.length > 0) {
+        suggestionsBox.classList.remove('hidden');
+        data.forEach(place => {
+          const item = document.createElement('div');
+          item.className = 'px-4 py-2 cursor-pointer hover:bg-green-100 text-sm';
+          item.textContent = place.display_name;
+          item.addEventListener('click', () => {
+            addressInput.value = place.display_name;
+            suggestionsBox.classList.add('hidden');
+          });
+          suggestionsBox.appendChild(item);
+        });
+      } else {
+        suggestionsBox.classList.add('hidden');
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!suggestionsBox.contains(e.target) && e.target !== addressInput) {
+        suggestionsBox.classList.add('hidden');
+      }
+    });
+  </script>
+
 </body>
 </html>

@@ -98,7 +98,23 @@
       </form>
       <p class="text-center my-3">................or................</p>
       <div class="text-center space-x-4 mb-3">
-        <i class="fab fa-google text-lg"></i>
+        <div class="text-center mb-3">
+          <div id="g_id_onload"
+            data-client_id="765441210802-juindci3ov6nu88nppfird8grvr6guf0.apps.googleusercontent.com"
+            data-context="signin"
+            data-ux_mode="redirect"
+            data-login_uri="http://localhost:8000/google-callback.php"
+            data-auto_prompt="false">
+          </div>
+
+          <div class="g_id_signin"
+            data-type="icon"
+            data-shape="circle"
+            data-theme="outline"
+            data-text="signin_with"
+            data-size="medium">
+          </div>
+        </div>
         <i class="fab fa-facebook text-lg"></i>
       </div>
       <p class="text-center text-sm text-black">
@@ -107,6 +123,8 @@
       </p>
 
     </div>
+
+
 
     <div class="w-full lg:w-1/2 flex items-center justify-center text-center p-4">
       <div class="animate-continuous">
@@ -152,14 +170,29 @@
         </button>
       </form>
       <p class="text-center my-3">................or................</p>
-      <div class="text-center space-x-4 mb-3">
-        <i class="fab fa-google text-lg"></i>
-        <i class="fab fa-facebook text-lg"></i>
+      
+      <div class="text-center mb-3">
+        <div id="g_id_onload"
+          data-client_id="765441210802-juindci3ov6nu88nppfird8grvr6guf0.apps.googleusercontent.com"
+          data-context="signin"
+          data-ux_mode="redirect"
+          data-login_uri="http://localhost:8000/google-callback.php"
+          data-auto_prompt="false">
+        </div>
+
+        <!-- Custom Google Icon using Font Awesome -->
+        <div class="inline-block text-black-600 cursor-pointer" onclick="google.accounts.id.prompt()">
+          <i class="fab fa-google text-3xl text-black-600 hover:scale-110 transition-transform duration-200"></i>
+        </div>
+
+        <!-- Facebook Icon -->
+        <i class="fab fa-facebook text-lg text-blue-600 hover:scale-110 transition-transform duration-200"></i>
       </div>
+
       <p class="text-center text-sm text-black">
-  Already have an account?
-  <button id="signInButton" class="text-green-900 font-bold hover:underline">Sign In</button>
-</p>
+        Already have an account?
+        <button id="signInButton" class="text-green-900 font-bold hover:underline">Sign In</button>
+      </p>
 
     </div>
 
@@ -206,6 +239,9 @@
       }
     }
   </script>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
 </body>
 
 </html>

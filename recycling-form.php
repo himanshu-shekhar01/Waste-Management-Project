@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Recycling Request Form</title>
@@ -12,7 +13,7 @@
       background-position: center;
       background-repeat: no-repeat;
     }
-    
+
     .overlay {
       background-color: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(4px);
@@ -20,9 +21,12 @@
 
     /* Custom float animation */
     @keyframes float {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0);
       }
+
       50% {
         transform: translateY(-15px);
       }
@@ -33,6 +37,7 @@
     }
   </style>
 </head>
+
 <body class="min-h-screen flex flex-col items-center justify-start p-6 bg-gradient-to-br from-green-100 via-blue-100 to-yellow-100">
 
   <!-- Image Banner with Animation -->
@@ -62,8 +67,9 @@
       <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-green-500">
         <i class="fas fa-map-marker-alt"></i>
       </span>
-      <input type="text" name="address" placeholder="Enter your address"
-        class="w-full pl-10 p-3 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300 bg-green-50" required />
+      <input id="addressInput" type="text" name="address" placeholder="Enter your address" class="w-full pl-10 p-3 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-green-300 bg-green-50"
+        required />
+      <div id="suggestions" class="absolute top-full left-0 w-full bg-white border rounded shadow-md mt-1 hidden z-50"></div>
     </div>
 
     <!-- Waste Type Selection -->
@@ -85,5 +91,48 @@
     </button>
   </form>
 
+
+  <script>
+    const addressInput = document.getElementById('addressInput');
+    const suggestionsBox = document.getElementById('suggestions');
+
+    addressInput.addEventListener('input', async () => {
+      const query = addressInput.value.trim();
+      if (query.length < 3) {
+        suggestionsBox.innerHTML = '';
+        suggestionsBox.classList.add('hidden');
+        return;
+      }
+
+      const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      suggestionsBox.innerHTML = '';
+      if (data.length > 0) {
+        suggestionsBox.classList.remove('hidden');
+        data.forEach(place => {
+          const item = document.createElement('div');
+          item.className = 'px-4 py-2 cursor-pointer hover:bg-green-100 text-sm';
+          item.textContent = place.display_name;
+          item.addEventListener('click', () => {
+            addressInput.value = place.display_name;
+            suggestionsBox.classList.add('hidden');
+          });
+          suggestionsBox.appendChild(item);
+        });
+      } else {
+        suggestionsBox.classList.add('hidden');
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!suggestionsBox.contains(e.target) && e.target !== addressInput) {
+        suggestionsBox.classList.add('hidden');
+      }
+    });
+  </script>
+
 </body>
+
 </html>

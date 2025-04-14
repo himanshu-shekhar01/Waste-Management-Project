@@ -24,7 +24,7 @@
     .active-service {
       animation: popUp 0.6s ease-out forwards;
     }
-
+    
     @keyframes popUp {
       0% {
         transform: scale(0.8);
