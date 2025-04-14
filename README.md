@@ -100,7 +100,7 @@ document.addEventListener('click', (e) => {
 });
 
 
---
+---
 
 ## 🗃️ Database Integration
 
@@ -113,7 +113,7 @@ The application uses **MySQL** via **phpMyAdmin** to store recycling requests.
 Each time a user submits a recycling request, their data (like address and timestamp) is stored in the `recycling_requests` table for tracking and processing.
 
 
---
+---
 
 ## ✉️ Feedback Form (Email Integration)
 
