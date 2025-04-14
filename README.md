@@ -42,8 +42,11 @@ A responsive and interactive web portal built with HTML, CSS, JavaScript, and PH
    $client->setClientId('YOUR_CLIENT_ID');
    $client->setClientSecret('YOUR_CLIENT_SECRET');
 
-   ## 🗺️ Location Search with OpenStreetMap
 
+---
+
+
+## 🗺️ Location Search with OpenStreetMap
 The project uses the Nominatim API to convert user-entered address/location into coordinates (geocoding).
 
 **API Used:**  
