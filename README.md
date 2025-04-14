@@ -7,7 +7,8 @@ A responsive and interactive web portal built with HTML, CSS, JavaScript, and PH
 ## 🌟 Features
 
 - 🧑‍💼 User Authentication (Sign Up / Sign In)
-- 🔒 Login with Google (OAuth)
+- 🔒 Login with Google (OAuth 2.0)
+- 📍 Location Search with OpenStreetMap (Nominatim API)
 - 🪪 Secure password field with toggle visibility
 - 📄 Clean and modern UI with TailwindCSS
 - 📦 Reusable form components
@@ -40,3 +41,29 @@ A responsive and interactive web portal built with HTML, CSS, JavaScript, and PH
    ```php
    $client->setClientId('YOUR_CLIENT_ID');
    $client->setClientSecret('YOUR_CLIENT_SECRET');
+
+   ## 🗺️ Location Search with OpenStreetMap
+
+The project uses the Nominatim API to convert user-entered address/location into coordinates (geocoding).
+
+**API Used:**  
+[`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`](https://nominatim.openstreetmap.org/)
+
+### 💡 How It Works:
+
+- The user types a location in the input field.
+- A `fetch()` request is sent to the Nominatim API with the query.
+- Results (like latitude, longitude, display_name) are returned and displayed as suggestions.
+- User selects one, and the location is stored in a hidden input for backend use.
+
+### 📍 Sample Code Snippet
+
+```js
+const input = document.getElementById('locationInput');
+
+input.addEventListener('input', async () => {
+  const query = input.value;
+  const response = await fetch(\`https://nominatim.openstreetmap.org/search?format=json&q=\${encodeURIComponent(query)}\`);
+  const results = await response.json();
+  // Show suggestions dropdown with results
+});
