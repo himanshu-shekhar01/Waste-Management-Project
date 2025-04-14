@@ -99,6 +99,3 @@ document.addEventListener('click', (e) => {
   }
 });
 
-
----
-
