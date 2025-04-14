@@ -98,3 +98,29 @@ document.addEventListener('click', (e) => {
     suggestionsBox.classList.add('hidden');
   }
 });
+
+
+--
+
+## 🗃️ Database Integration
+
+The application uses **MySQL** via **phpMyAdmin** to store recycling requests.
+
+- 📂 Database Name: `recycling_db`
+- 📄 Table: `recycling_requests`
+- 🔗 Connected using PHP (MySQLi or PDO)
+
+Each time a user submits a recycling request, their data (like address and timestamp) is stored in the `recycling_requests` table for tracking and processing.
+
+
+--
+
+## ✉️ Feedback Form (Email Integration)
+
+The website includes a feedback form that allows users to send their suggestions or concerns directly to our Gmail inbox.
+
+- 📬 Form data is collected using an HTML form.
+- 📤 PHP `mail()` function or PHPMailer is used to send the form details to our Gmail.
+- 🔐 Gmail SMTP is configured for secure email delivery.
+
+This ensures all user feedback is received instantly and can be acted upon promptly.
