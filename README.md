@@ -46,27 +46,55 @@ A responsive and interactive web portal built with HTML, CSS, JavaScript, and PH
 ---
 
 
-## 🗺️ Location Search with OpenStreetMap
-The project uses the Nominatim API to convert user-entered address/location into coordinates (geocoding).
+## 🗺️ Live Location Auto-Suggestion with OpenStreetMap
 
-**API Used:**  
-[`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`](https://nominatim.openstreetmap.org/)
+To enhance user experience while filling the address field, the site uses the **Nominatim API** (from OpenStreetMap) to provide live suggestions based on user input.
 
-### 💡 How It Works:
+### ✨ How It Works
 
-- The user types a location in the input field.
-- A `fetch()` request is sent to the Nominatim API with the query.
-- Results (like latitude, longitude, display_name) are returned and displayed as suggestions.
-- User selects one, and the location is stored in a hidden input for backend use.
+- When the user starts typing in the address field:
+  - If the input is more than 2 characters, it triggers an API call.
+  - Suggestions are shown in a dropdown below the input.
+  - Clicking a suggestion fills the input box with the full address.
 
-### 📍 Sample Code Snippet
+### ⚙️ JavaScript Code
 
 ```js
-const input = document.getElementById('locationInput');
+const addressInput = document.getElementById('addressInput');
+const suggestionsBox = document.getElementById('suggestions');
 
-input.addEventListener('input', async () => {
-  const query = input.value;
-  const response = await fetch(\`https://nominatim.openstreetmap.org/search?format=json&q=\${encodeURIComponent(query)}\`);
-  const results = await response.json();
-  // Show suggestions dropdown with results
+addressInput.addEventListener('input', async () => {
+  const query = addressInput.value.trim();
+  if (query.length < 3) {
+    suggestionsBox.innerHTML = '';
+    suggestionsBox.classList.add('hidden');
+    return;
+  }
+
+  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`;
+  const response = await fetch(url);
+  const data = await response.json();
+
+  suggestionsBox.innerHTML = '';
+  if (data.length > 0) {
+    suggestionsBox.classList.remove('hidden');
+    data.forEach(place => {
+      const item = document.createElement('div');
+      item.className = 'px-4 py-2 cursor-pointer hover:bg-green-100 text-sm';
+      item.textContent = place.display_name;
+      item.addEventListener('click', () => {
+        addressInput.value = place.display_name;
+        suggestionsBox.classList.add('hidden');
+      });
+      suggestionsBox.appendChild(item);
+    });
+  } else {
+    suggestionsBox.classList.add('hidden');
+  }
+});
+
+document.addEventListener('click', (e) => {
+  if (!suggestionsBox.contains(e.target) && e.target !== addressInput) {
+    suggestionsBox.classList.add('hidden');
+  }
 });
