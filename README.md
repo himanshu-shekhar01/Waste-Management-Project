@@ -29,22 +29,6 @@ A responsive and interactive web portal built with HTML, CSS, JavaScript, and PH
 
 ---
 
-## 🔐 Google Login Setup
-
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project.
-3. Go to **APIs & Services > Credentials**
-4. Create an **OAuth Client ID**
-5. Set **Authorized Redirect URI** to:  
-   `http://localhost/google-login/callback.php`
-6. Copy your `Client ID` and `Client Secret` into your PHP file:
-   ```php
-   $client->setClientId('YOUR_CLIENT_ID');
-   $client->setClientSecret('YOUR_CLIENT_SECRET');
-
-
----
-
 
 ## 🗺️ Live Location Auto-Suggestion with OpenStreetMap
 

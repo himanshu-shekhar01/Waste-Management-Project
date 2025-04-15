@@ -97,25 +97,11 @@
         </button>
       </form>
       <p class="text-center my-3">................or................</p>
-      <div class="text-center space-x-4 mb-3">
-        <div class="text-center mb-3">
-          <div id="g_id_onload"
-            data-client_id="765441210802-juindci3ov6nu88nppfird8grvr6guf0.apps.googleusercontent.com"
-            data-context="signin"
-            data-ux_mode="redirect"
-            data-login_uri="http://localhost:8000/google-callback.php"
-            data-auto_prompt="false">
-          </div>
-
-          <div class="g_id_signin"
-            data-type="icon"
-            data-shape="circle"
-            data-theme="outline"
-            data-text="signin_with"
-            data-size="medium">
-          </div>
-        </div>
-        <i class="fab fa-facebook text-lg"></i>
+      <div class="text-center mb-3">
+        <!-- google icon -->
+        <i class="fab fa-google text-lg text-black-600 hover:scale-110 transition-transform duration-200 mx-2"></i>
+        <!-- Facebook Icon -->
+        <i class="fab fa-facebook text-lg text-black-600 hover:scale-110 transition-transform duration-200 mx-2"></i>
       </div>
       <p class="text-center text-sm text-black">
         Don't have an account?
@@ -170,23 +156,12 @@
         </button>
       </form>
       <p class="text-center my-3">................or................</p>
-      
+
       <div class="text-center mb-3">
-        <div id="g_id_onload"
-          data-client_id="765441210802-juindci3ov6nu88nppfird8grvr6guf0.apps.googleusercontent.com"
-          data-context="signin"
-          data-ux_mode="redirect"
-          data-login_uri="http://localhost:8000/google-callback.php"
-          data-auto_prompt="false">
-        </div>
-
         <!-- Custom Google Icon using Font Awesome -->
-        <div class="inline-block text-black-600 cursor-pointer" onclick="google.accounts.id.prompt()">
-          <i class="fab fa-google text-3xl text-black-600 hover:scale-110 transition-transform duration-200"></i>
-        </div>
-
+        <i class="fab fa-google text-lg text-black-600 hover:scale-110 transition-transform duration-200 mx-2"></i>
         <!-- Facebook Icon -->
-        <i class="fab fa-facebook text-lg text-blue-600 hover:scale-110 transition-transform duration-200"></i>
+        <i class="fab fa-facebook text-lg text-black-600 hover:scale-110 transition-transform duration-200 mx-2"></i>
       </div>
 
       <p class="text-center text-sm text-black">
